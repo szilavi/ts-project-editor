@@ -1,0 +1,35 @@
+.new-project-div {
+  background-image: url("../assets/newprojectbg.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.project-card-div {
+  background-image: url("../assets/searchbg.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.newproject-button,
+.next-button,
+.add-team-member,
+.add-link-button {
+  background-color: #ff5242;
+}
+
+.newproject-button:hover,
+.next-button:hover,
+.add-team-member:hover,
+.add-link-button:hover {
+  background-color: #6de3ed;
+}
+
+.finish-button {
+  background-color: #21a7b3;
+}
+
+.finish-button:hover {
+  background-color: #6de3ed;
+}
