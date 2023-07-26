@@ -21,13 +21,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         alt={project.name}
       />
       <div className="card-body d-flex flex-column ">
-        <h5 className="card-title overflow-hidden" style={{ height: "3rem" }}>
+        <h5
+          className="card-title overflow-hidden card-ellipsis-title"
+          style={{ height: "3rem" }}
+        >
           {project.name}
         </h5>
-        <p className="card-text overflow-hidden" style={{ height: "8rem" }}>
+        <p
+          className="card-text overflow-hidden card-ellipsis-body"
+          style={{ height: "8rem" }}
+        >
           {project.description}
         </p>
-        <a href="#" className="btn btn-primary mt-auto">
+        <a href="#" className="btn btn-info text-white mt-auto">
           More info
         </a>
       </div>
