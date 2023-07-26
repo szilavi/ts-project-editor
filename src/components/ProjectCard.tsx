@@ -17,7 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       style={{ width: "15rem" }}
     >
       <img
-        src="https://via.placeholder.com/150"
+        src="https://fakeimg.pl/600x400"
         className="card-img-top"
         alt={project.name}
       />

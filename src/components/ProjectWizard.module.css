@@ -1,14 +1,8 @@
-.newproject-button,
-.next-button,
-.add-team-member,
-.add-link-button {
+.next-button {
   background-color: #ff5242;
 }
 
-.newproject-button:hover,
-.next-button:hover,
-.add-team-member:hover,
-.add-link-button:hover {
+.next-button:hover {
   background-color: #6de3ed;
 }
 
@@ -18,4 +12,8 @@
 
 .finish-button:hover {
   background-color: #6de3ed;
+}
+
+.progressbar {
+  background-color: #ff5242;
 }
