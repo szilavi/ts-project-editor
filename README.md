@@ -23,3 +23,11 @@ add team member résszel valamit kezdeni, mert ha kettőnél több van benne, ak
 linkről nem is beszélve
 
 next gombok ne működjenek, ha nem validak az adott oldal adatai
+
+progressbar javitas
+
+module.css-re átírni esetleg a css-t
+
+számláló, hány karaktert üteht még bele a felhasználó...
+
+form háttér vagy blur vagy pedig a megmaradt backgorund, ami nem lett felhasználva

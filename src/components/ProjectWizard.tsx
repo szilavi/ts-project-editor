@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
+import styles from "./ProjectWizard.module.css";
 
 type Project = {
   name: string;
@@ -122,7 +123,7 @@ const SecondStep: React.FC<SecondStepProps> = ({
         />
       </div>
       <button
-        className="btn add-team-member text-white"
+        className={`btn ${styles["add-team-member"]} text-white`}
         onClick={handleAddTeamMember}
       >
         Add Team Member
@@ -169,7 +170,7 @@ const ThirdStep: React.FC<ThirdStepProps> = ({ links, onLinksChange }) => {
         />
       </div>
       <button
-        className="btn add-link-button text-white"
+        className={`btn ${styles["add-link-button"]} text-white`}
         onClick={handleAddLink}
       >
         Add Link
@@ -194,7 +195,7 @@ const ProjectWizard: React.FC<ProjectWizardProps> = ({ onProjectCreate }) => {
   };
 
   return (
-    <div className="new-project-div">
+    <div>
       {step === 1 && (
         <FirstStep
           name={name}
@@ -216,7 +217,7 @@ const ProjectWizard: React.FC<ProjectWizardProps> = ({ onProjectCreate }) => {
           style={{ height: "5vh" }}
         >
           <button
-            className="btn next-button col-2 text-white"
+            className={`btn ${styles["next-button"]} col-2 text-white`}
             onClick={() => setStep((step) => step + 1)}
           >
             Next step
@@ -227,7 +228,10 @@ const ProjectWizard: React.FC<ProjectWizardProps> = ({ onProjectCreate }) => {
           className="d-flex justify-content-center mb-1"
           style={{ height: "5vh" }}
         >
-          <button className="btn finish-button col-2" onClick={handleFinish}>
+          <button
+            className={`btn ${styles["finish-button"]} col-2 text-white`}
+            onClick={handleFinish}
+          >
             Finish
           </button>
         </div>

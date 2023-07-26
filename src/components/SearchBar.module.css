@@ -1,0 +1,3 @@
+.searchbar-container input:focus {
+  border-color: #ff5242;
+}

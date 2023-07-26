@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./ProjectCard.module.css";
 
 type Project = {
   name: string;
@@ -22,13 +23,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       />
       <div className="card-body d-flex flex-column ">
         <h5
-          className="card-title overflow-hidden card-ellipsis-title"
+          className={`card-title overflow-hidden ${styles["card-ellipsis-title"]}`}
           style={{ height: "3rem" }}
         >
           {project.name}
         </h5>
         <p
-          className="card-text overflow-hidden card-ellipsis-body"
+          className={`card-text overflow-hidden ${styles["card-ellipsis-body"]}`}
           style={{ height: "8rem" }}
         >
           {project.description}

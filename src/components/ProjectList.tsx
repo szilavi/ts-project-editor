@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./ProjectList.module.css";
 import SearchBar from "./SearchBar";
 import ProjectCard from "./ProjectCard";
 
@@ -20,7 +21,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <div className="searchinput col-md-3">
+      <div className={`col-md-3 ${styles.searchinput}`}>
         <SearchBar value={searchText} onChange={setSearchText} />
       </div>
       {filteredProjects.length === 0 ? (

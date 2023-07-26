@@ -1,0 +1,21 @@
+.newproject-button {
+  background-color: #ff5242;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+}
+
+.newproject-button:hover {
+  background-color: #6de3ed;
+}
+
+@media (max-width: 550px) {
+  .newproject-button {
+    position: fixed;
+    top: 50px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

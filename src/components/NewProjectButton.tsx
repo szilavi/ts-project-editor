@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./NewProjectButton.module.css";
 
 type NewProjectButtonProps = {
   onClick: () => void;
@@ -22,7 +23,10 @@ const NewProjectButton: React.FC<NewProjectButtonProps> = ({
   const buttonText = creatingProject ? "Discard Changes" : "Add New Project";
 
   return (
-    <button className="btn newproject-button text-white" onClick={handleClick}>
+    <button
+      className={`btn text-white ${styles.btn} ${styles["newproject-button"]}`}
+      onClick={handleClick}
+    >
       {buttonText}
     </button>
   );
