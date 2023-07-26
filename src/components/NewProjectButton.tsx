@@ -1,49 +1,30 @@
-import React, { useState } from "react";
-import ProjectWizard from "./ProjectWizard";
-
-// Definíció az új Project típusnak
-type Project = {
-  name: string;
-  description: string;
-};
+import React from "react";
 
 type NewProjectButtonProps = {
   onClick: () => void;
-  onProjectCreate: (project: Project) => void;
+  onDiscardChanges: () => void;
+  creatingProject: boolean;
 };
 
 const NewProjectButton: React.FC<NewProjectButtonProps> = ({
   onClick,
-  onProjectCreate,
+  onDiscardChanges,
+  creatingProject,
 }) => {
-  const [creating, setCreating] = useState(false);
-
   const handleClick = () => {
-    setCreating(true);
-    onClick();
+    if (creatingProject) {
+      onDiscardChanges();
+    } else {
+      onClick();
+    }
   };
 
-  const handleProjectCreate = (project: Project) => {
-    setCreating(false);
-    onProjectCreate(project);
-  };
-
-  if (creating) {
-    return <ProjectWizard onProjectCreate={handleProjectCreate} />;
-  }
+  const buttonText = creatingProject ? "Discard Changes" : "Add New Project";
 
   return (
-    <div
-      className="container-fluid d-flex justify-content-center align-items-center new-project-div"
-      style={{ height: "35vh" }}
-    >
-      <button
-        className="btn newproject-button text-white"
-        onClick={handleClick}
-      >
-        Add new project
-      </button>
-    </div>
+    <button className="btn newproject-button text-white" onClick={handleClick}>
+      {buttonText}
+    </button>
   );
 };
 

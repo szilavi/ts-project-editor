@@ -6,36 +6,30 @@ type Project = {
 };
 
 interface ProjectCardProps {
-  projects: Project[];
+  project: Project;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ projects }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div
-      className="container-fluid project-card-div"
-      style={{ height: "65vh" }}
+      className="card col-xxl-3 col-xl-4 col-lg-6"
+      style={{ width: "15rem" }}
     >
-      <div className="d-flex flex-wrap justify-content-center">
-        {projects.map((project) => (
-          <div
-            className="card m-2"
-            style={{ width: "15rem" }}
-            key={project.name}
-          >
-            <img
-              src="https://via.placeholder.com/150"
-              className="card-img-top"
-              alt={project.name}
-            />
-            <div className="card-body">
-              <h5 className="card-title">{project.name}</h5>
-              <p className="card-text">{project.description}</p>
-              <a href="#" className="btn btn-primary">
-                More info
-              </a>
-            </div>
-          </div>
-        ))}
+      <img
+        src="https://via.placeholder.com/150"
+        className="card-img-top"
+        alt={project.name}
+      />
+      <div className="card-body d-flex flex-column ">
+        <h5 className="card-title overflow-hidden" style={{ height: "3rem" }}>
+          {project.name}
+        </h5>
+        <p className="card-text overflow-hidden" style={{ height: "8rem" }}>
+          {project.description}
+        </p>
+        <a href="#" className="btn btn-primary mt-auto">
+          More info
+        </a>
       </div>
     </div>
   );

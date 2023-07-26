@@ -27,7 +27,7 @@ const FirstStep: React.FC<FirstStepProps> = ({
   return (
     <div
       className="d-flex flex-column align-items-center justify-content-center"
-      style={{ height: "35vh" }}
+      style={{ height: "87vh" }}
     >
       <div className="text-white col-4 mb-3">
         <label htmlFor="projectname" className="form-label">
@@ -85,7 +85,7 @@ const SecondStep: React.FC<SecondStepProps> = ({
   return (
     <div
       className="d-flex flex-column align-items-center justify-content-center"
-      style={{ height: "35vh" }}
+      style={{ height: "87vh" }}
     >
       {teamMembers.map((member, index) => (
         <div className="text-white col-4 mb-3" key={index}>
@@ -147,7 +147,7 @@ const ThirdStep: React.FC<ThirdStepProps> = ({ links, onLinksChange }) => {
   return (
     <div
       className="d-flex flex-column align-items-center justify-content-center"
-      style={{ height: "35vh" }}
+      style={{ height: "87vh" }}
     >
       {links.map((link, index) => (
         <div className="text-white col-4 mb-3" key={index}>
@@ -168,7 +168,10 @@ const ThirdStep: React.FC<ThirdStepProps> = ({ links, onLinksChange }) => {
           required
         />
       </div>
-      <button className="btn add-link-button" onClick={handleAddLink}>
+      <button
+        className="btn add-link-button text-white"
+        onClick={handleAddLink}
+      >
         Add Link
       </button>
     </div>
@@ -208,7 +211,10 @@ const ProjectWizard: React.FC<ProjectWizardProps> = ({ onProjectCreate }) => {
       )}
       {step === 3 && <ThirdStep links={links} onLinksChange={setLinks} />}
       {step < 3 ? (
-        <div className="d-flex justify-content-center">
+        <div
+          className="d-flex justify-content-center border-top mb-2 pt-1"
+          style={{ height: "5vh" }}
+        >
           <button
             className="btn next-button col-2 text-white"
             onClick={() => setStep((step) => step + 1)}
@@ -217,19 +223,25 @@ const ProjectWizard: React.FC<ProjectWizardProps> = ({ onProjectCreate }) => {
           </button>
         </div>
       ) : (
-        <div className="d-flex justify-content-center">
+        <div
+          className="d-flex justify-content-center mb-1"
+          style={{ height: "5vh" }}
+        >
           <button className="btn finish-button col-2" onClick={handleFinish}>
             Finish
           </button>
         </div>
       )}
-      <div className="text-white">Progress: {step}/3</div>
+      <div className="text-white text-center" style={{ height: "5vh" }}>
+        Progress: {step}/3
+      </div>
       <div
         className="progress"
         role="progressbar"
         aria-valuenow={(step / 3) * 100}
         aria-valuemin={0}
         aria-valuemax={100}
+        style={{ height: "2vh" }}
       >
         <div
           className="progress-bar"

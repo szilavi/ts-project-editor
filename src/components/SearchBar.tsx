@@ -11,14 +11,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   };
 
   return (
-    <input
-      placeholder="Search"
-      className="form-control"
-      type="text"
-      value={value}
-      onChange={handleInputChange}
-      style={{ textAlign: "center" }}
-    />
+    <div className="searchbar-container">
+      <input
+        placeholder="Search"
+        className="form-control"
+        type="text"
+        value={value}
+        onChange={handleInputChange}
+        style={{ textAlign: "center" }}
+      />
+    </div>
   );
 };
 

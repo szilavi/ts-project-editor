@@ -1,10 +1,3 @@
-.new-project-div {
-  background-image: url("../assets/newprojectbg.png");
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
-}
-
 .project-card-div {
   background-image: url("../assets/searchbg.jpg");
   background-repeat: no-repeat;
@@ -32,4 +25,30 @@
 
 .finish-button:hover {
   background-color: #6de3ed;
+}
+
+.newproject-button {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+}
+
+.searchbar-container input:focus {
+  border-color: #ff5242;
+}
+
+.searchinput {
+  margin-top: 150px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 550px) {
+  .newproject-button {
+    position: fixed;
+    top: 50px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
