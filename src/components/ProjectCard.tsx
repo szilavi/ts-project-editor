@@ -1,10 +1,14 @@
 import React from "react";
 import styles from "./ProjectCard.module.css";
+import { Link } from "react-router-dom";
 
-type Project = {
+interface Project {
+  id: string;
   name: string;
   description: string;
-};
+  teamMembers: { name: string; position: string }[];
+  links: string[];
+}
 
 interface ProjectCardProps {
   project: Project;
@@ -13,7 +17,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div
-      className="card col-xxl-3 col-xl-4 col-lg-6"
+      className={`card text-white col-xxl-3 col-xl-4 col-lg-6 ${styles.bgcard}`}
       style={{ width: "15rem" }}
     >
       <img
@@ -23,20 +27,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       />
       <div className="card-body d-flex flex-column ">
         <h5
-          className={`card-title overflow-hidden ${styles["card-ellipsis-title"]}`}
+          className={`fw-medium card-title overflow-hidden ${styles["card-ellipsis-title"]}`}
           style={{ height: "3rem" }}
         >
           {project.name}
         </h5>
         <p
-          className={`card-text overflow-hidden ${styles["card-ellipsis-body"]}`}
+          className={`fw-lighter card-text overflow-hidden ${styles["card-ellipsis-body"]}`}
           style={{ height: "8rem" }}
         >
           {project.description}
         </p>
-        <a href="#" className="btn btn-info text-white mt-auto">
+        <Link
+          className={`${styles.moreinfo} text-white text-decoration-none btn btn-info bg-dark text-white mt-auto`}
+          to={`/projects/${project.id}`}
+        >
           More info
-        </a>
+        </Link>
       </div>
     </div>
   );

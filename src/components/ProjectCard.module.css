@@ -12,8 +12,8 @@
   height: 3em;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 1) 100%
+    rgba(124, 53, 53, 0),
+    rgba(124, 53, 53, 1) 100%
   );
 }
 
@@ -26,7 +26,11 @@
   height: 1em;
   background: linear-gradient(
     to left,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(124, 53, 53, 1) 50%,
+    rgba(124, 53, 53, 0) 100%
   );
+}
+
+.bgcard {
+  background: rgba(124, 53, 53);
 }

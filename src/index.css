@@ -1,6 +1,15 @@
+@font-face {
+  font-family: blinker;
+  src: url("../assets/Blinker/fonts_ttf/Blinker-Regular.ttf");
+}
+
 body {
   background-image: url("../assets/newprojectbg.png");
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
+}
+
+* {
+  font-family: "blinker", sans-serif;
 }

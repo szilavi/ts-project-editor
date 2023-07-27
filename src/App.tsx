@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import ProjectList from "./components/ProjectList"; // Importáljuk a ProjectList komponenst
+import ProjectList from "./components/ProjectList";
 import NewProjectButton from "./components/NewProjectButton";
 import ProjectWizard from "./components/ProjectWizard";
-import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ProjectDetails from "./components/ProjectDetails";
 
-type Project = {
+interface Project {
+  id: string;
   name: string;
   description: string;
-};
+  teamMembers: { name: string; position: string }[];
+  links: string[];
+}
 
 const App: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -34,14 +38,27 @@ const App: React.FC = () => {
   }
 
   return (
-    <div>
-      <NewProjectButton
-        onClick={handleNewProjectClick}
-        onDiscardChanges={handleDiscardChanges}
-        creatingProject={creatingProject}
-      />
-      {content}
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/projects/:id"
+          element={<ProjectDetails projects={projects} />}
+        />
+        <Route
+          path="/"
+          element={
+            <>
+              <NewProjectButton
+                onClick={handleNewProjectClick}
+                onDiscardChanges={handleDiscardChanges}
+                creatingProject={creatingProject}
+              />
+              {content}
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 

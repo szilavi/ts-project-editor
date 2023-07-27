@@ -4,12 +4,13 @@ import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
 import ThirdStep from "./ThirdStep";
 
-type Project = {
+interface Project {
+  id: string;
   name: string;
   description: string;
   teamMembers: { name: string; position: string }[];
   links: string[];
-};
+}
 
 interface ProjectWizardProps {
   onProjectCreate: (project: Project) => void;
@@ -27,7 +28,13 @@ const ProjectWizard: React.FC<ProjectWizardProps> = ({ onProjectCreate }) => {
   const [links, setLinks] = useState<string[]>([]);
 
   const handleFinish = () => {
-    const newProject = { name, description, teamMembers, links };
+    const newProject = {
+      id: Math.random().toString(36).substr(2, 9), // ezért elnézést kérek
+      name,
+      description,
+      teamMembers,
+      links,
+    };
     onProjectCreate(newProject);
   };
 
@@ -43,11 +50,11 @@ const ProjectWizard: React.FC<ProjectWizardProps> = ({ onProjectCreate }) => {
       setIsValid(
         name !== "" &&
           name.length <= 255 &&
+          name[0] === name[0].toUpperCase() &&
           (description === "" ||
             (description.length >= 50 && description.length <= 500))
       );
     }
-    // További validációs logika a második és harmadik lépéshez...
   }, [step, name, description]);
 
   return (

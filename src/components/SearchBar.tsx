@@ -8,18 +8,21 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value);
+    let inputValue = event.target.value;
+    if (inputValue.length > 0) {
+      inputValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+    }
+    onChange(inputValue);
   };
 
   return (
     <div className={styles["searchbar-container"]}>
       <input
         placeholder="Search"
-        className="form-control"
+        className="form-control text-center"
         type="text"
         value={value}
         onChange={handleInputChange}
-        style={{ textAlign: "center" }}
       />
     </div>
   );

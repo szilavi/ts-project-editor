@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./ProjectList.module.css";
 import SearchBar from "./SearchBar";
 import ProjectCard from "./ProjectCard";
 
-type Project = {
+interface Project {
+  id: string;
   name: string;
   description: string;
-};
+  teamMembers: { name: string; position: string }[];
+  links: string[];
+}
 
 type ProjectListProps = {
   projects: Project[];
@@ -14,8 +17,17 @@ type ProjectListProps = {
 
 const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   const [searchText, setSearchText] = useState("");
+  const [loadedProjects, setLoadedProjects] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const filteredProjects = projects.filter((project) =>
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadedProjects(projects);
+      setIsLoading(false);
+    }, 1000);
+  }, [projects]);
+
+  const filteredProjects = loadedProjects.filter((project) =>
     project.name.includes(searchText)
   );
 
@@ -24,7 +36,11 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
       <div className={`col-md-3 ${styles.searchinput}`}>
         <SearchBar value={searchText} onChange={setSearchText} />
       </div>
-      {filteredProjects.length === 0 ? (
+      {isLoading ? (
+        <div className="d-flex justify-content-center align-items-center mt-5">
+          <h1 className="text-white">Loading...</h1>
+        </div>
+      ) : filteredProjects.length === 0 ? (
         <div className="d-flex justify-content-center align-items-center mt-5">
           <h1 className="text-white text-center">
             You don't have any projects yet, create one!
@@ -33,7 +49,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
           {filteredProjects.map((project, index) => (
-            <div className="m-2" key={index}>
+            <div className="m-2" key={project.id}>
               <ProjectCard project={project} />
             </div>
           ))}

@@ -14,7 +14,12 @@ const FirstStep: React.FC<FirstStepProps> = ({
   onNameChange,
   onDescriptionChange,
 }) => {
-  const isValidName = name.length > 0 && name.length <= 255;
+  const isValidName =
+    name.length > 0 &&
+    name.length <= 255 &&
+    name.charCodeAt(0) >= 65 &&
+    name.charCodeAt(0) <= 90;
+
   const isValidDescription =
     description.length === 0 ||
     (description.length >= 50 && description.length <= 500);
@@ -40,6 +45,7 @@ const FirstStep: React.FC<FirstStepProps> = ({
             value={name}
             onChange={(e) => onNameChange(e.target.value)}
             maxLength={255}
+            placeholder="Starts with a capital letter!"
             required
           />
           <div className={isValidName ? "text-success" : "text-danger"}>
@@ -57,6 +63,7 @@ const FirstStep: React.FC<FirstStepProps> = ({
             }`}
             id="projectdescription"
             onChange={(e) => onDescriptionChange(e.target.value)}
+            placeholder="Optional."
             rows={3}
             minLength={50}
             maxLength={500}

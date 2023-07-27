@@ -1,0 +1,21 @@
+.projectcard {
+  backdrop-filter: blur(10px) brightness(75%);
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.linktext {
+  color: #ff5242;
+}
+
+.buttonback {
+  background-color: #ff5242;
+}
+
+.buttonback:hover {
+  background-color: #6de3ed;
+}
+
+.cardbody {
+  overflow-y: auto;
+  max-height: 80vh;
+}

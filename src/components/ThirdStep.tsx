@@ -10,7 +10,13 @@ const ThirdStep: React.FC<ThirdStepProps> = ({ links, onLinksChange }) => {
   const [link, setLink] = useState("");
 
   const handleAddLink = () => {
-    onLinksChange([...links, link]);
+    let processedLink = link;
+
+    if (!link.startsWith("http://") && !link.startsWith("https://")) {
+      processedLink = `http://${link}`;
+    }
+
+    onLinksChange([...links, processedLink]);
     setLink("");
   };
 
